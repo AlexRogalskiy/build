@@ -22,7 +22,7 @@ jobs:
       released-version: ${{ steps.current-release.outputs.result }}
       next-version: ${{ steps.next-release.outputs.output }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: read the current release version from git tags
         id: current-release
         run: |
@@ -44,7 +44,7 @@ jobs:
     env:
       next_version: ${{ needs.versions.outputs.next-version }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: release
       - run: git fetch origin main
